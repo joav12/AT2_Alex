@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="./filme-detalhe.page.scss">
+
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{obj.nome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-card *ngIf="obj">
+    <ion-card-header>
+      <img *ngIf="obj.foto" src="{{obj.foto}}" />
+      <ion-icon *ngIf="!obj.foto" name="videocam-off"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{obj.nome}} <ion-icon name="star" [color]="obj.favorito===true ? 'warning' : ('light')"></ion-icon></h1>
+      <p>Numero da ODS: {{obj.codigo}}</p>
+    </ion-card-content>
+    <ion-item>
+      <ion-label>Descrição:</ion-label>
+      <ion-textarea rows="20" cols="20" readonly value={{obj.descricao}}></ion-textarea>
+    </ion-item>
+
+  </ion-card>
+</ion-content>
